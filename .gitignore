@@ -1,0 +1,20 @@
+build/
+DerivedData
+*.xcuserstate
+*.pbxuser
+*.xccheckout
+xcuserdata
+.DS_Store
+
+# CococaPods
+Pods/
+
+# Carthage
+Carthage/*
+
+# Node Modules
+node_modules/*
+
+# Bundler
+/.bundle
+/vendor/bundle
