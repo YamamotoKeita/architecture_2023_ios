@@ -1,17 +1,36 @@
-//
-//  Architecure2023App.swift
-//  Architecure2023
-//
-//  Created by 山本敬太 on 2023/04/27.
-//
-
 import SwiftUI
 
 @main
 struct Architecure2023App: App {
+
+    @Environment(\.scenePhase) private var scenePhase
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
+    @StateObject var viewModel = AppViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            switch viewModel.mainScreenType {
+            case .launch:
+                LaunchView()
+            case .login:
+                LoginView()
+                    .globalAlert()
+            case .main:
+                MainTabView()
+                    .globalAlert()
+            }
+        }
+        .onChange(of: scenePhase) { phase in
+            switch phase {
+              case .active:
+                viewModel.onBecomeActive()
+              case .background:
+                viewModel.onEnterBackground()
+              default:
+                  break
+              }
         }
     }
 }
+
