@@ -6,24 +6,33 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-            HStack {
+            VStack(alignment: .leading) {
                 Text("UserName")
                 TextField("UserName", text: $viewModel.userName)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(16.0)
             }
-            HStack {
+            .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+
+            VStack(alignment: .leading) {
                 Text("Password")
                 TextField("Password", text: $viewModel.password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(16.0)
             }
+            .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+
             if let errorMessage = viewModel.errorMessage {
                 Text(errorMessage)
             }
+
             Button("Login") {
                 viewModel.onLoginTapped()
             }
+            .frame(maxWidth: .infinity)
+            .padding(10)
+            .background(Color.accentColor)
+            .foregroundColor(.white)
+            .font(.system(size: 20, weight: .bold))
+            .cornerRadius(30)
         }
         .onAppear {
         }
