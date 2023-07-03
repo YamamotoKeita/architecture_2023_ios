@@ -1,8 +1,11 @@
 import Foundation
 
-class LoginUseCase: UsesUserRepository, UsesLocalDatabase {
-    var output: LoginUseCaseOutput?
+protocol LoginUseCase: UsesUserRepository, UsesLocalDatabase {
+    var output: LoginUseCaseOutput? { get set }
+    func login(userName: String, password: String) async
+}
 
+extension LoginUseCase {
     func login(userName: String, password: String) async {
         let result = await userRepository.get(userName: userName, passowrd: password)
         switch result {

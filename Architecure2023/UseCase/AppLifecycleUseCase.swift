@@ -1,7 +1,13 @@
 import Foundation
 
-class AppLifecycleUseCase: UsesLocalDatabase, UsesFirebase, UsesUserRepository, UsesVersionCheckUseCase, UsesMainScreenState, UsesAnalytics {
+protocol AppLifecycleUseCase: UsesLocalDatabase, UsesFirebase, UsesUserRepository, UsesVersionCheckUseCase, UsesMainScreenState, UsesAnalytics {
+    func launch() async
+    func launchFromURL(url: URL) async
+    func onEnterForeground() async
+    func onLeaveForeground() async
+}
 
+extension AppLifecycleUseCase {
     // 通常起動
     func launch() async {
         await localDatabase.migrate()
@@ -16,9 +22,9 @@ class AppLifecycleUseCase: UsesLocalDatabase, UsesFirebase, UsesUserRepository, 
         let result = await userRepository.get(token: token)
         switch result {
         case .success(_):
-            mainScreenState.change(.login)
-        case .failure(_):
             mainScreenState.change(.main)
+        case .failure(_):
+            mainScreenState.change(.login)
         }
     }
 

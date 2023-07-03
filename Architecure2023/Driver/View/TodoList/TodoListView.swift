@@ -8,10 +8,13 @@ struct TodoListView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack {
-                Text("Todo")
-                    .bold()
-                    .padding()
-                    .frame(maxWidth: .infinity)
+                HStack {
+                    Spacer()
+                    Text("Todo")
+                        .bold()
+                        .padding()
+                    Spacer()
+                }
                 .background(Color.white)
                 .shadow(radius: 2, y: 3)
 
@@ -31,6 +34,7 @@ struct TodoListView: View {
                 List(viewModel.todos, id: \.content) { todo in
                     TodoRow(todo: todo)
                         .listRowInsets(EdgeInsets())
+                        .listRowSeparator(.hidden)
                 }
                 .listStyle(PlainListStyle())
             }

@@ -4,24 +4,22 @@ struct TodoRow: View {
     @State var todo: Todo
 
     var body: some View {
-        HStack {
-            VStack {
-                Text(todo.content)
-                    .bold()
-                    .font(.headline)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(todo.label.name)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
-            ZStack {
-                VStack {
-                    Text("07/05")
-                    Spacer()
+        VStack {
+            HStack {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(todo.content)
+                            .bold()
+                            .font(.headline)
+                        Spacer()
+                    }
+                    Text(todo.label.name)
                 }
                 Text(">")
             }
+            .padding()
+            Divider()
         }
-        .padding()
     }
 }
 

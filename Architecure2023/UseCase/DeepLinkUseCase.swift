@@ -1,6 +1,10 @@
 import Foundation
 
-class DeepLinkUseCase {
+protocol DeepLinkUseCase {
+    func onOpenFromURL(_ url: URL)
+}
+
+extension DeepLinkUseCase {
     func onOpenFromURL(_ url: URL) {
         
     }

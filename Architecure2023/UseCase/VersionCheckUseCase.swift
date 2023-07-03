@@ -1,6 +1,11 @@
 import Foundation
 
-class VersionCheckUseCase: UsesFirebase, UsesApplication, UsesAlert {
+protocol VersionCheckUseCase: UsesFirebase, UsesApplication, UsesAlert {
+    func versionCheck() async
+    func isValidVersion(_ version: String, minSupportVersion: String) -> Bool
+}
+
+extension VersionCheckUseCase {
     func versionCheck() async {
         let remoteConfig = await firebase.getRemoteConfig()
 
@@ -17,7 +22,7 @@ class VersionCheckUseCase: UsesFirebase, UsesApplication, UsesAlert {
         application.openBrowser(url: remoteConfig.storeURL)
     }
 
-    private func isValidVersion(_ version: String, minSupportVersion: String) -> Bool {
+    func isValidVersion(_ version: String, minSupportVersion: String) -> Bool {
         // TODO 1.0と1.0.0を正しく比較できない
         switch minSupportVersion.compare(version, options: .numeric) {
         case .orderedDescending:

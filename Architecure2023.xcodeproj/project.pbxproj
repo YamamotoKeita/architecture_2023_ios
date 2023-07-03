@@ -37,6 +37,7 @@
 		23EB9D6E29FD706000511967 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EB9D6D29FD706000511967 /* Color.swift */; };
 		4006F7EC29FF41B300282B2A /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4006F7EB29FF41B300282B2A /* Style.swift */; };
 		4006F7EE29FF435700282B2A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4006F7ED29FF435700282B2A /* TestView.swift */; };
+		401B2F3C2A5303BB00A610A4 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401B2F3B2A5303BB00A610A4 /* DIContainer.swift */; };
 		4051511C2A3CA2A7009AD98B /* ProductionDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051511B2A3CA2A7009AD98B /* ProductionDependencies.swift */; };
 		4051511E2A3CAEB8009AD98B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051511D2A3CAEB8009AD98B /* LoginViewModel.swift */; };
 		405151202A3D26CF009AD98B /* SessionToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4051511F2A3D26CF009AD98B /* SessionToken.swift */; };
@@ -135,6 +136,7 @@
 		23EB9D6D29FD706000511967 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4006F7EB29FF41B300282B2A /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		4006F7ED29FF435700282B2A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		401B2F3B2A5303BB00A610A4 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		4051511B2A3CA2A7009AD98B /* ProductionDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionDependencies.swift; sourceTree = "<group>"; };
 		4051511D2A3CAEB8009AD98B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		4051511F2A3D26CF009AD98B /* SessionToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionToken.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 		40F0DD562A3B071800B0C0AB /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				401B2F3B2A5303BB00A610A4 /* DIContainer.swift */,
 				4051511B2A3CA2A7009AD98B /* ProductionDependencies.swift */,
 			);
 			path = DI;
@@ -713,6 +716,7 @@
 				23EB9D6829FC104000511967 /* TodoFilterView.swift in Sources */,
 				406140432A49D4C0009C4EC7 /* AlertView.swift in Sources */,
 				40F0DD5A2A3B074300B0C0AB /* UsesRepository.swift in Sources */,
+				401B2F3C2A5303BB00A610A4 /* DIContainer.swift in Sources */,
 				23EB9D5929FBC11E00511967 /* ScreenName.swift in Sources */,
 				236847FD2A11350500AAC1E2 /* LocalDatabaseImpl.swift in Sources */,
 				40BF32C12A31CC0F0061322E /* AppViewModel.swift in Sources */,
@@ -818,7 +822,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -872,7 +876,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -3,7 +3,7 @@ import Foundation
 class TodoListViewModel: ObservableObject {
     @Published var todos: [Todo] = []
 
-    let useCase = TodoUseCase()
+    let useCase = TodoUseCaseImpl()
 
     init(todos: [Todo] = []) {
         self.todos = todos

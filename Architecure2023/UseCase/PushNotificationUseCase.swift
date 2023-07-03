@@ -1,6 +1,10 @@
 import Foundation
 
-class PushNotificationUseCase {
+protocol PushNotificationUseCase {
+    func notificationReceived(userInfo: [AnyHashable: Any])
+}
+
+extension PushNotificationUseCase {
     func notificationReceived(userInfo: [AnyHashable: Any]) {
         
     }

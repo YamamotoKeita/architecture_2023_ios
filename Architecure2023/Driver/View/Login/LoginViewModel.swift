@@ -5,7 +5,7 @@ class LoginViewModel: ObservableObject, UsesMainScreenState, UsesAlert {
     @Published var password: String = ""
     @Published var errorMessage: String?
 
-    let useCase = LoginUseCase()
+    let useCase = LoginUseCaseImpl()
 
     init() {
         useCase.output = self

@@ -1,15 +1,20 @@
 import Foundation
 
-class TodoUseCase: UsesAnalytics, UsesTodoRepository {
+protocol TodoUseCase: UsesAnalytics, UsesTodoRepository {
+    var output: TodoUseCaseOutput? { get set }
+    var filterConditin: TodoFilter { get }
 
-    var output: TodoUseCaseOutput?
-    var filterConditin = TodoFilter(labels: [])
+    func show()
+    func selectTodo(todo: Todo) async
+    func applyFilter(condition: TodoFilter) async
+}
 
+extension TodoUseCase {
     func show() {
         analytics.send(.todoList)
 
         Task {
-            let result = try await todoRepository.getAll()
+            let result = await todoRepository.getAll()
             switch result {
             case .success(let todos):
                 output?.showTodoList(todos)
